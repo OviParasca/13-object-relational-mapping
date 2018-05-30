@@ -1,11 +1,14 @@
 'use strict';
 
+import mongoose from 'mongoose';
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import router from './api/api.js';
 import errorHandler from './middleware/error.js';
 import notFound from './middleware/404.js';
+
+mongoose.connect(process.env.MONGODB_URI);
 
 
 let app = express();

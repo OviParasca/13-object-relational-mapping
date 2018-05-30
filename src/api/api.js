@@ -7,8 +7,6 @@ import modelFinder from '../middleware/model.js';
 router.param('model', modelFinder);
 
 
-
-
 // GET routes
 router.get('/api/v1/:model', (req, res, next) => {
   req.model.find({})
