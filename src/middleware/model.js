@@ -22,5 +22,3 @@ export default (req, res, next) => {
     next('Model Not Found');
   }
 };
-
-
