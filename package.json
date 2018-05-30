@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "dbon": "mkdir -p ./db && mongod --dbpath ./db",
     "watch": "nodemon index.js",
     "test-watch": "jest --watchAll",
     "test": "jest",
