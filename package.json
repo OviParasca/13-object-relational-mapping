@@ -7,8 +7,8 @@
     "start": "node index.js",
     "dbon": "mkdir -p ./db && mongod --dbpath ./db",
     "watch": "nodemon index.js",
-    "test-watch": "jest --watchAll",
-    "test": "jest",
+    "test": "jest --verbose --coverage",
+    "test-watch": "jest --verbose --watchAll --coverage",
     "lint": "eslint **/*.js"
   },
   "author": "Ovidiu Parasca",
