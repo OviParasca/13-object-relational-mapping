@@ -9,9 +9,12 @@ router.param('model', modelFinder);
 
 // GET routes
 router.get('/api/v1/:model', (req, res, next) => {
+  console.log(`${req.model}`);
   req.model.find({})
   .then(data => sendJSON(res, data))
-  .catch(next);
+  // .catch(next);
+  .catch(console.log);
+
 });
 
 router.get('/api/v1/:model/:id', (req, res, next) => {
@@ -30,7 +33,8 @@ router.post('/api/v1/:model', (req, res, next) => {
   // let output = {route: 'post req.params.model:id', model: req.params.model, data: req.body};
   // sendJSON(res, output);
 
-  req.model.save(req.body)
+  let record = new req.model(req.body);
+  record.save()
   .then(data => sendJSON(res, data))
   .catch(next);
 });
@@ -50,7 +54,7 @@ router.delete('/api/v1/:model/:id', (req, res, next) => {
 
 
 // Helper methods
-let sendJSON = (req, res) => {
+let sendJSON = (res, data) => {
   res.statusCode = 200;
   res.statusMessage = "OK";
   res.setHeader('Content-Type', 'application/json');
@@ -58,11 +62,4 @@ let sendJSON = (req, res) => {
   res.end();
 }
 
-
-
-
-
-
 export default router;
-
-

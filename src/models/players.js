@@ -1,21 +1,15 @@
 'use strict';
 
 import mongoose from 'mongoose';
-
+// var Schema = mongoose.Schema;
 
 const playerSchema = mongoose.Schema({
-  name: { type:String, required:true },
-  position: { type:String, uppercase:true, required:true },
-  bats: { type:String, uppercase:true, default:'R', enum:['R','r','L','l'] },
-  throws: { type:String, uppercase:true, default:'R', enum:['R','r','L','l'] },
+// const playerSchema = new Schema({
+  name: {type: String, required: true},
+  position: {type: String, required: true},
+  bats: {type: String, default: 'R'},
+  throws: {type: String, default: 'R', enum:['L', 'R']},
 });
-
-// const playerSchema = mongoose.Schema({
-//   name: {type: String, required: true},
-//   position: {type: String, required: true},
-//   bats: {type: String, default: 'R'},
-//   throws: {type: String, enum:['L', 'R']},
-// });
 
 playerSchema.pre('save', function(next) {
   // this.position = this.position.toUpperCase();
